@@ -29,7 +29,7 @@ program
       const tree = dirTree(path)
       if (tree === null) {
         console.log(
-          chalk.bold.red(
+          chalk.red(
             `Warning! ${path} is not a directory usable by the project explorer. Perhaps try using pwd to generate the path for you.`
           )
         )
@@ -37,7 +37,7 @@ program
       }
       writeFile(tree, err => {
         if (err) {
-          console.log(chalk.bold.red(err))
+          console.log(chalk.red(err))
           process.exit(1)
         }
         process.exit(0)

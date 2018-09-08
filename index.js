@@ -8,6 +8,7 @@ const program = require('commander'),
   fs = require('fs')
 
 const writeFile = (tree, name, cb) => {
+  tree.name = name
   const fullTree = `const tree = ${JSON.stringify(tree, null, 2)}
   export { tree }`
 

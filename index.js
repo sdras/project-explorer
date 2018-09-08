@@ -8,7 +8,15 @@ const program = require('commander'),
   fs = require('fs')
 
 const writeFile = (tree, name, cb) => {
+  // we want to name the initial directory properly and later we'll make sure it's open
   tree.name = name
+  // we add this note so that people can see how to add comments.
+  // feel free to delete this part if you want to eliminate the example
+  tree.children.push({
+    path: 'READMEexample',
+    name: 'READMEexample',
+    type: 'file'
+  })
   const fullTree = `const tree = ${JSON.stringify(tree, null, 2)}
   export { tree }`
 
@@ -22,6 +30,7 @@ const writeFile = (tree, name, cb) => {
       console.log(
         chalk.yellow(`✨ Your files were saved, now let's build it out! ✨`)
       )
+      console.log('Hang tight, this might take a minute.')
       cb()
     })
   })
@@ -46,6 +55,7 @@ program
         )
         process.exit(1)
       }
+      // write the files and call the shell commands to kick the project off
       writeFile(tree, name, err => {
         if (err) {
           console.log(chalk.red(err))
@@ -54,9 +64,7 @@ program
         shell.cd('base-directory-tree')
         shell.exec('yarn')
         console.log(
-          chalk.cyan(
-            `🎸 whee! done! built with success! now let's get you a server`
-          )
+          chalk.cyan(`🎸 Done! Built with success! Now let's get you a server.`)
         )
         shell.exec('yarn serve')
       })

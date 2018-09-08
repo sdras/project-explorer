@@ -11,7 +11,7 @@ const writeFile = (tree, cb) => {
 
   fs.writeFile('tree.js', fullTree, 'utf8', err => {
     if (err) throw err
-    console.log(chalk.yellow('The file was saved!'))
+    console.log(chalk.yellow('✨ The file was saved! ✨'))
     cb()
   })
 }
@@ -23,8 +23,8 @@ program
   .action(name => {
     co(function*() {
       const path = yield prompt('path: ')
-      console.log(chalk.cyan('Name of Project: ') + name)
-      console.log(chalk.cyan('Path: ') + path)
+      console.log(chalk.cyan('‣ Name of Project: ') + name)
+      console.log(chalk.cyan('‣ Path: ') + path)
 
       const tree = dirTree(path)
       if (tree === null) {

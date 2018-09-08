@@ -2,7 +2,7 @@
 
 Create a tree visualization of any project with this CLI tool. When ramping people up on an existing codebase, there's often a lot of state they have to understand about the project- where everything is, where everything starts, exceptional files. With this tool, you can generate a visualization of any project, as well modify certain directories to be open, or have notes that people can read through easily.
 
-A working example of this exists here: \_. I created this for Vue core off of notes taken at a core meeting with learnings from Evan You.
+A working example of this exists here: \_. I created this for Vue core off of notes taken at a core meeting as Evan You walked us through some of the file structure.
 
 Prerequisites: 
 - You need to be running Node 8 or higher
@@ -21,11 +21,11 @@ $ tree nameofyourproject
 
 This will kick off the processes that will build the directory trees, the UI for traversing, and give you a little example to start with too :)
 
-# Open directories
+## Open directories
 
 You can specify what directories you would like to be open when a user first visits by adding them to the `opened` array in `base-directory-tree/src/store`.
 
-# Comments 
+## Comments 
 
 You can add comments for the different files by adding them to the `comments` object in `base-directory-tree/src/store`. You will specify it using the path as the key and the comment as the value, like this:
 

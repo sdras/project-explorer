@@ -3,9 +3,6 @@
   "version": "1.0.2",
   "description": "Create a navigable directory tree visualization of your project",
   "main": "index.js",
-  "scripts": {
-    "test": "\"init\""
-  },
   "keywords": [
     "tree, visualization, directory, notes, CLI, tool"
   ],

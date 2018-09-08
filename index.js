@@ -6,13 +6,13 @@ const program = require('commander'),
   dirTree = require('directory-tree'),
   fs = require('fs')
 
-const writeFile = tree => {
-  console.log('hi there')
-  fs.writeFile('tree.js', tree, 'utf8', err => {
-    if (err) {
-      return console.log(err)
-    }
-    console.log('The file was saved!')
+const writeFile = (tree, cb) => {
+  const fullTree = JSON.stringify(tree, null, 2)
+
+  fs.writeFile('tree.js', fullTree, 'utf8', err => {
+    if (err) throw err
+    console.log(chalk.yellow('The file was saved!'))
+    cb()
   })
 }
 
@@ -23,13 +23,25 @@ program
   .action(name => {
     co(function*() {
       const path = yield prompt('path: ')
-      console.log(chalk.bold.cyan('Name of Project: ') + name)
-      console.log(chalk.bold.cyan('Path: ') + path)
+      console.log(chalk.cyan('Name of Project: ') + name)
+      console.log(chalk.cyan('Path: ') + path)
 
       const tree = dirTree(path)
-      writeFile(tree)
-
-      //process.exit(0)
+      if (tree === null) {
+        console.log(
+          chalk.bold.red(
+            `Warning! ${path} is not a directory usable by the project explorer. Perhaps try using pwd to generate the path for you.`
+          )
+        )
+        process.exit(1)
+      }
+      writeFile(tree, err => {
+        if (err) {
+          console.log(chalk.bold.red(err))
+          process.exit(1)
+        }
+        process.exit(0)
+      })
     })
   })
   .parse(process.argv)

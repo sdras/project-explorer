@@ -1,0 +1,24 @@
+{
+  "name": "trial",
+  "version": "1.0.0",
+  "description": "Testing 123",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"init\""
+  },
+  "keywords": [
+    "stuff"
+  ],
+  "bin": {
+    "tree": "./index.js"
+  },
+  "author": "sdras",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^2.18.0",
+    "directory-tree": "^2.1.0"
+  }
+}

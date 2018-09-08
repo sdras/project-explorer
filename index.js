@@ -4,6 +4,7 @@ const program = require('commander'),
   prompt = require('co-prompt'),
   chalk = require('chalk'),
   dirTree = require('directory-tree'),
+  shell = require('shelljs'),
   fs = require('fs')
 
 const writeFile = (tree, cb) => {
@@ -40,8 +41,9 @@ program
           console.log(chalk.red(err))
           process.exit(1)
         }
-        process.exit(0)
       })
+
+      shell.cd('base-directory-tree')
     })
   })
   .parse(process.argv)

@@ -19,6 +19,7 @@
     "co": "^4.6.0",
     "co-prompt": "^1.0.0",
     "commander": "^2.18.0",
-    "directory-tree": "^2.1.0"
+    "directory-tree": "^2.1.0",
+    "shelljs": "^0.8.2"
   }
 }

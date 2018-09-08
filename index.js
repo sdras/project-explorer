@@ -7,13 +7,22 @@ const program = require('commander'),
   shell = require('shelljs'),
   fs = require('fs')
 
-const writeFile = (tree, cb) => {
-  const fullTree = JSON.stringify(tree, null, 2)
+const writeFile = (tree, name, cb) => {
+  const fullTree = `const tree = ${JSON.stringify(tree, null, 2)}
+  export { tree }`
 
-  fs.writeFile('tree.js', fullTree, 'utf8', err => {
+  const nameDir = `const name = '${name}'
+  export { name }`
+
+  fs.writeFile('./base-directory-tree/src/tree.js', fullTree, 'utf8', err => {
     if (err) throw err
-    console.log(chalk.yellow('✨ The file was saved! ✨'))
-    cb()
+    fs.writeFile('./base-directory-tree/src/name.js', nameDir, 'utf8', err => {
+      if (err) throw err
+      console.log(
+        chalk.yellow(`✨ Your files were saved, now let's build it out! ✨`)
+      )
+      cb()
+    })
   })
 }
 
@@ -36,14 +45,20 @@ program
         )
         process.exit(1)
       }
-      writeFile(tree, err => {
+      writeFile(tree, name, err => {
         if (err) {
           console.log(chalk.red(err))
           process.exit(1)
         }
+        shell.cd('base-directory-tree')
+        shell.exec('yarn')
+        console.log(
+          chalk.cyan(
+            `🎸 whee! done! built with success! now let's get you a server`
+          )
+        )
+        shell.exec('yarn serve')
       })
-
-      shell.cd('base-directory-tree')
     })
   })
   .parse(process.argv)

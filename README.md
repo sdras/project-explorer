@@ -8,15 +8,26 @@ Create a tree visualization of any project with this CLI tool. When ramping peop
 npm i -g project-explorer
 ```
 
-A working example of this exists here: \_. I created this for Vue core off of notes taken at a core meeting as Evan You walked us through some of the file structure.
+![demo-image](https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/vue-directory.png)
+
+A [working example of this exists here](https://sdras.github.io/vue-directory-tree/). I created this for Vue core off of notes taken at a core meeting as Evan You walked us through some of the file structure.
 
 ### Prerequisites: 
 - You need to be running Node 8 or higher
 - You have to have Yarn installed.
 
-### Usage: 
-- Replace nameofyourproject with the name you'd like to give your project
-- Path can either be the current directory or you can use `pwd` in another local directory of choice. I recommend this option as you might want these files and this documentation in another folder.
+### Usage:
+> To create the visualization in the same folder as your project: 
+1. Go into the directory of a project you'd like to document, and run the first command, `tree nameofyourproject`.
+2. When prompted for your path, write `.` or `./`
+3. Magic happens! ✨ (but it takes a minute ⏰)
+
+> To create the visualization in a separate folder: 
+1. Go into the directory of a project you'd like to document, and run `pwd` in your terminal to get the path
+2. Create a new folder to run this CLI in. 
+3. Run the first command, `tree nameofyourproject`.
+4. Then paste in the output of pwd as your path when the CLI prompts you for it.
+5. Magic happens! ✨ (but it takes a minute ⏰)
 
 ```
 $ tree nameofyourproject
@@ -25,7 +36,10 @@ $ tree nameofyourproject
 ‣ Path: ./
 ```
 
-This will kick off the processes that will build the directory trees, the UI for traversing, and give you a little example to start with too :)
+- Replace nameofyourproject with the name you'd like to give your project
+- Path can either be the current directory or you can use `pwd` in another local directory of choice. I recommend this option as you might want these files and this documentation in another folder.
+
+This will kick off the processes that will build the directory trees, the UI for traversing, and give you a little example to start with too :) It will even kick off the server for you.
 
 ## Open directories
 

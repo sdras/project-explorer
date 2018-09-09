@@ -1,6 +1,6 @@
 {
   "name": "project-explorer",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Create a navigable directory tree visualization of your project",
   "main": "index.js",
   "keywords": [

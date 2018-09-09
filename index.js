@@ -6,6 +6,7 @@ const program = require('commander'),
   dirTree = require('directory-tree'),
   shell = require('shelljs'),
   targz = require('targz'),
+  path = require('path'),
   fs = require('fs')
 
 const writeFile = (tree, name, cb) => {
@@ -43,15 +44,15 @@ program
   .option('-wf, --writefile', 'Writetofile', writeFile)
   .action(name => {
     co(function*() {
-      const path = yield prompt('path: ')
+      const pathDir = yield prompt('path: ')
       console.log(chalk.cyan('‣ Name of Project: ') + name)
-      console.log(chalk.cyan('‣ Path: ') + path)
+      console.log(chalk.cyan('‣ Path: ') + pathDir)
 
-      const tree = dirTree(path)
+      const tree = dirTree(pathDir)
       if (tree === null) {
         console.log(
           chalk.red(
-            `Warning! ${path} is not a directory usable by the project explorer. Perhaps try using pwd to generate the path for you.`
+            `Warning! ${pathDir} is not a directory usable by the project explorer. Perhaps try using pwd to generate the path for you.`
           )
         )
         process.exit(1)
@@ -59,7 +60,7 @@ program
 
       targz.decompress(
         {
-          src: 'basedirectory.tar.gz',
+          src: path.join(__dirname, 'basedirectory.tar.gz'),
           dest: '.'
         },
         function(err) {

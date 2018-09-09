@@ -5,6 +5,7 @@ const program = require('commander'),
   chalk = require('chalk'),
   dirTree = require('directory-tree'),
   shell = require('shelljs'),
+  targz = require('targz'),
   fs = require('fs')
 
 const writeFile = (tree, name, cb) => {
@@ -55,19 +56,34 @@ program
         )
         process.exit(1)
       }
-      // write the files and call the shell commands to kick the project off
-      writeFile(tree, name, err => {
-        if (err) {
-          console.log(chalk.red(err))
-          process.exit(1)
+
+      targz.decompress(
+        {
+          src: 'basedirectory.tar.gz',
+          dest: '.'
+        },
+        function(err) {
+          if (err) {
+            console.log(err)
+          } else {
+            // write the files and call the shell commands to kick the project off
+            writeFile(tree, name, err => {
+              if (err) {
+                console.log(chalk.red(err))
+                process.exit(1)
+              }
+              shell.cd('base-directory-tree')
+              shell.exec('yarn')
+              console.log(
+                chalk.cyan(
+                  `🎸 Done! Built with success! Now let's get you a server.`
+                )
+              )
+              shell.exec('yarn serve')
+            })
+          }
         }
-        shell.cd('base-directory-tree')
-        shell.exec('yarn')
-        console.log(
-          chalk.cyan(`🎸 Done! Built with success! Now let's get you a server.`)
-        )
-        shell.exec('yarn serve')
-      })
+      )
     })
   })
   .parse(process.argv)

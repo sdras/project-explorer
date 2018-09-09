@@ -39,6 +39,12 @@ You can add comments for the different files by adding them to the `comments` ob
 `READMEexample`: `This is an example of how a note is made! You can write the pathname of any file and the note will appear ☺️. You can delete this now.`
 ```
 
-Thanks for using this project! I hope it's helpful. If you see ways to improve it, PRs are welcome. 
+## Github link
+
+You can point the github logo link to your own repo by updating the `github` string in `base-directory-tree/src/store`.
+
+(Basically all the state you need is probably in the Vuex store. 😉)
+
+🥂 Thanks for using this project! I hope it's helpful. If you see ways to improve it, PRs are welcome. 
 
 Twitter: [sarah_edo](https://twitter.com/sarah_edo)

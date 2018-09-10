@@ -1,5 +1,7 @@
 # 🎋 Project Explorer
 
+> Check out the site: [https://sdras.github.io/project-explorer-site/](https://sdras.github.io/project-explorer-site/)
+
 Create a tree visualization of any project with this CLI tool. When ramping people up on an existing codebase, there's often a lot of state they have to understand about the project- where everything is, where everything starts, exceptional files. With this tool, you can generate a visualization of any project, as well modify certain directories to be open, or have notes that people can read through easily.
 
 ## Installation

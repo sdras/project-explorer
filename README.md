@@ -22,7 +22,7 @@ A [working example of this exists here](https://sdras.github.io/vue-directory-tr
 
 ## Usage:
 > _To create the visualization in the same folder as your project_: 
-1. Go into the directory of a project you'd like to document, and run the first command, `tree nameofyourproject`.
+1. Go into the directory of a project you'd like to document, and run the first command, `pexx nameofyourproject`.
 2. When prompted for your path, write `.` or `./`
 3. Magic happens! ✨ (but it takes a minute ⏰)
 
@@ -31,20 +31,20 @@ A [working example of this exists here](https://sdras.github.io/vue-directory-tr
 > _To create the visualization in a separate folder_: 
 1. Go into the directory of a project you'd like to document, and run `pwd` in your terminal to get the path
 2. Create a new folder to run this CLI in. 
-3. Run the first command, `tree nameofyourproject`.
+3. Run the first command, `pexx nameofyourproject`.
 4. Then paste in the output of pwd as your path when the CLI prompts you for it.
 5. Magic happens! ✨ (but it takes a minute ⏰)
 
 ---
 
 ```
-$ tree nameofyourproject
+$ pexx nameofyourproject
 > path: ./ (or whatever your pwd output is)
 ‣ Name of Project: nameofyourproject
 ‣ Path: ./
 ```
 
-- Replace nameofyourproject with the name you'd like to give your project
+- Replace `nameofyourproject` with the name you'd like to give your project
 - Path can either be the current directory or you can use `pwd` in another local directory of choice. I recommend this option as you might want these files and this documentation in another folder.
 
 This will kick off the processes that will build the directory trees, the UI for traversing, and give you a little example to start with too :) It will even kick off the server for you.

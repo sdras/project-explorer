@@ -45,10 +45,13 @@ program
   .action(name => {
     co(function*() {
       const pathDir = yield prompt('path: ')
+      const excludePattern = yield prompt('excludes (optional): ')
+      const treeConfig = excludePattern && { "exclude": new RegExp(excludePattern) }
       console.log(chalk.cyan('‣ Name of Project: ') + name)
       console.log(chalk.cyan('‣ Path: ') + pathDir)
+      console.log(chalk.cyan('‣ exclude: ') + excludePattern)
 
-      const tree = dirTree(pathDir)
+      const tree = dirTree(pathDir, treeConfig)
       if (tree === null) {
         console.log(
           chalk.red(

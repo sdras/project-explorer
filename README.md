@@ -40,8 +40,10 @@ A [working example of this exists here](https://sdras.github.io/vue-directory-tr
 ```
 $ pexx nameofyourproject
 > path: ./ (or whatever your pwd output is)
+> exclude: node_modules|.git
 ‣ Name of Project: nameofyourproject
 ‣ Path: ./
+‣ exclude: node_modules|.git
 ```
 
 - Replace `nameofyourproject` with the name you'd like to give your project

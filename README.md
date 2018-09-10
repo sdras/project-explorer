@@ -1,4 +1,4 @@
-# Project Explorer
+# 🎋 Project Explorer
 
 Create a tree visualization of any project with this CLI tool. When ramping people up on an existing codebase, there's often a lot of state they have to understand about the project- where everything is, where everything starts, exceptional files. With this tool, you can generate a visualization of any project, as well modify certain directories to be open, or have notes that people can read through easily.
 
@@ -7,6 +7,8 @@ Create a tree visualization of any project with this CLI tool. When ramping peop
 ```
 npm i -g project-explorer
 ```
+
+Here's an example of what we'll be generating:
 
 ![demo-image](https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/vue-directory.png)
 

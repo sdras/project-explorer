@@ -2,7 +2,7 @@
 
 Create a tree visualization of any project with this CLI tool. When ramping people up on an existing codebase, there's often a lot of state they have to understand about the project- where everything is, where everything starts, exceptional files. With this tool, you can generate a visualization of any project, as well modify certain directories to be open, or have notes that people can read through easily.
 
-### Installation
+## Installation
 
 ```
 npm i -g project-explorer
@@ -16,13 +16,13 @@ A [working example of this exists here](https://sdras.github.io/vue-directory-tr
 - You need to be running Node 8 or higher
 - You have to have Yarn installed.
 
-### Usage:
-> To create the visualization in the same folder as your project: 
+## Usage:
+> _To create the visualization in the same folder as your project_: 
 1. Go into the directory of a project you'd like to document, and run the first command, `tree nameofyourproject`.
 2. When prompted for your path, write `.` or `./`
 3. Magic happens! ✨ (but it takes a minute ⏰)
 
-> To create the visualization in a separate folder: 
+> _To create the visualization in a separate folder_: 
 1. Go into the directory of a project you'd like to document, and run `pwd` in your terminal to get the path
 2. Create a new folder to run this CLI in. 
 3. Run the first command, `tree nameofyourproject`.

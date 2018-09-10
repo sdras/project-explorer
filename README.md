@@ -22,12 +22,16 @@ A [working example of this exists here](https://sdras.github.io/vue-directory-tr
 2. When prompted for your path, write `.` or `./`
 3. Magic happens! ✨ (but it takes a minute ⏰)
 
+---
+
 > _To create the visualization in a separate folder_: 
 1. Go into the directory of a project you'd like to document, and run `pwd` in your terminal to get the path
 2. Create a new folder to run this CLI in. 
 3. Run the first command, `tree nameofyourproject`.
 4. Then paste in the output of pwd as your path when the CLI prompts you for it.
 5. Magic happens! ✨ (but it takes a minute ⏰)
+
+---
 
 ```
 $ tree nameofyourproject

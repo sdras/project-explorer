@@ -45,7 +45,7 @@ $ pexx nameofyourproject
 ```
 
 - Replace `nameofyourproject` with the name you'd like to give your project
-- Files in `.gitignore` will be ignored in the build
+- Files in `.gitignore` will be ignored in the build. We've also removed `.gitignore`, `.git`, and the `base-directory-tree` that this project will generate.
 - Path can either be the current directory or you can use `pwd` in another local directory of choice. I recommend this option as you might want these files and this documentation in another folder.
 
 This will kick off the processes that will build the directory trees, the UI for traversing, and give you a little example to start with too :) It will even kick off the server for you.
@@ -67,6 +67,10 @@ You can add comments for the different files by adding them to the `comments` ob
 You can point the github logo link to your own repo by updating the `github` string in `base-directory-tree/src/store`.
 
 (Basically all the state you need is probably in the Vuex store. 😉)
+
+## Contributing
+
+Contributions are welcome! 🤘 Please head over to `CONTRIBUTING.md` for more information.
 
 🥂 Thanks for using this project! I hope it's helpful. If you see ways to improve it, PRs are welcome. 
 

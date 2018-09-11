@@ -63,9 +63,14 @@ program
       console.log(chalk.cyan('‣ Name of Project: ') + name)
       console.log(chalk.cyan('‣ Path: ') + pathDir)
 
+      //take the gitignored regex array to exclude and add a couple more files, like the base-directory-tree we created.
+      const gitignoredArr = gitignoreRegex(pathDir)
+      gitignoredArr.push(/\.gitignore/, /base-directory-tree/, /\.git/)
+
       const tree = dirTree(pathDir, {
-          exclude: gitignoreRegex(pathDir),
+        exclude: gitignoredArr
       })
+
       if (tree === null) {
         console.log(
           chalk.red(

@@ -3,6 +3,9 @@
 .AppleDouble
 .LSOverride
 
+## Don't add in the base-directory tree that might have been made
+base-directory-tree
+
 # Icon must end with two 
 Icon
 # Thumbnails

@@ -1,5 +1,11 @@
 # Changelog
 
+### 1.3.1
+
+#### Bug Fixes:
+
+- [#14](https://github.com/sdras/project-explorer/issues/14) Exclude files .gitignore, .git, and the created base-directory-tree
+
 ### 1.3.0
 
 #### Improvement:

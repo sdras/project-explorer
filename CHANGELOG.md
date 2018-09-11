@@ -1,5 +1,11 @@
 # Changelog
 
+### 1.3.0
+
+#### Improvement:
+
+- [#8](https://github.com/sdras/project-explorer/issues/8) Exclude files listed in .gitignore
+
 ### 1.2.0
 
 #### Improvement:

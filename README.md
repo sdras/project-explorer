@@ -45,6 +45,7 @@ $ pexx nameofyourproject
 ```
 
 - Replace `nameofyourproject` with the name you'd like to give your project
+- Files in `.gitignore` will be ignored in the build
 - Path can either be the current directory or you can use `pwd` in another local directory of choice. I recommend this option as you might want these files and this documentation in another folder.
 
 This will kick off the processes that will build the directory trees, the UI for traversing, and give you a little example to start with too :) It will even kick off the server for you.

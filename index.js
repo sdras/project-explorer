@@ -6,6 +6,7 @@ const program = require('commander'),
   dirTree = require('directory-tree'),
   shell = require('shelljs'),
   targz = require('targz'),
+  isGlob = require('is-glob'),
   globToRegExp = require('glob-to-regexp'),
   path = require('path'),
   fs = require('fs')
@@ -48,7 +49,7 @@ const gitignoreRegex = (root) => {
     .filter(line => line.trim() !== '' && line.trim().charAt(0) !== '#')
     .map(line => {
       const pattern = line.trim()
-      return pattern.indexOf('*') < 0 ? RegExp(pattern.replace(/\/$/, '')) : globToRegExp(pattern)
+      return isGlob(pattern) ? globToRegExp(pattern) : RegExp(pattern.replace(/\/$/, ''))
     })
 }
 

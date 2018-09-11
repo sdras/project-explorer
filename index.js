@@ -6,6 +6,7 @@ const program = require('commander'),
   dirTree = require('directory-tree'),
   shell = require('shelljs'),
   targz = require('targz'),
+  globToRegExp = require('glob-to-regexp'),
   path = require('path'),
   fs = require('fs')
 
@@ -38,6 +39,19 @@ const writeFile = (tree, name, cb) => {
   })
 }
 
+const gitignoreRegex = (root) => {
+  let fileContents
+  try {
+    fileContents = fs.readFileSync(path.join(root, '.gitignore'), 'utf8')
+  } catch (err) { return }
+  return fileContents.split(/\r?\n/)
+    .filter(line => line.trim() !== '' && line.trim().charAt(0) !== '#')
+    .map(line => {
+      const pattern = line.trim()
+      return pattern.indexOf('*') < 0 ? RegExp(pattern.replace(/\/$/, '')) : globToRegExp(pattern)
+    })
+}
+
 program
   .arguments('<name>')
   .option('-p, --path <path>', 'The directory used for the project explorer')
@@ -48,7 +62,9 @@ program
       console.log(chalk.cyan('‣ Name of Project: ') + name)
       console.log(chalk.cyan('‣ Path: ') + pathDir)
 
-      const tree = dirTree(pathDir)
+      const tree = dirTree(pathDir, {
+          exclude: gitignoreRegex(pathDir),
+      })
       if (tree === null) {
         console.log(
           chalk.red(

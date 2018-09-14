@@ -44,7 +44,7 @@ const gitignoreRegex = (root) => {
   let fileContents
   try {
     fileContents = fs.readFileSync(path.join(root, '.gitignore'), 'utf8')
-  } catch (err) { return }
+  } catch (err) { return [] }
   return fileContents.split(/\r?\n/)
     .filter(line => line.trim() !== '' && line.trim().charAt(0) !== '#')
     .map(line => {

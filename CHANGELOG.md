@@ -1,5 +1,11 @@
 # Changelog
 
+### 1.3.3
+
+#### Bug Fixes:
+
+- [#14](https://github.com/sdras/project-explorer/issues/17) Fix silent error when no .gitignore is included
+
 ### 1.3.2
 
 #### Improvement:
